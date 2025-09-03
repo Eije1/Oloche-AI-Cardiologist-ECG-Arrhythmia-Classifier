@@ -11,7 +11,7 @@
 A state-of-the-art deep learning system for automated detection and classification of cardiac arrhythmias from raw single-lead ECG signals. This project implements a 1D Convolutional Neural Network (CNN) trained on the MIT-BIH Arrhythmia Database to provide real-time, explainable diagnostic support.
 
 **Access the website of this work:** [https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification](https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification)  
-** Researcher:** *Eije, Oloche Celestine
+** Researcher:** Eije, Oloche Celestine
 
 ## Project Overview
 
@@ -23,8 +23,9 @@ The system demonstrates a complete pipeline from model design and training to de
 
 This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1], the gold-standard benchmark for evaluating arrhythmia detectors.
 
-- **Source:** PhysioNet (https://physionet.org/content/mitdb/1.0.0/)
+- **Source:** MIT-BIH Arrhythmia Database (PhysioNet) (https://physionet.org/content/mitdb/1.0.0/)
 - **Contents:** 48 half-hour two-lead ECG recordings from 47 subjects
+- **Size:** 73MB
 - **Annotations:** Over 110,000 beats annotated by expert cardiologists
 - **Preprocessing:** Model trained on single-lead (MLII) signals with heartbeat extraction and normalization
 
@@ -66,7 +67,7 @@ The system classifies heartbeats into five categories according to AAMI standard
 Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
 
 ## Disclaimer
-This tool is a prototype for RESEARCH AND DEMONSTRATION PURPOSES ONLY. It is NOT a certified medical device.
+This tool is a prototype for research and demonstration purposes only. It is NOT a certified medical device.
 Not for diagnostic use - always consult qualified healthcare professionals
 Predictions are computational opinions, not definitive diagnoses
 Author assumes no liability for any use or misuse of this application
