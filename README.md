@@ -17,6 +17,9 @@ A state-of-the-art deep learning system for automated detection and classificati
 
 Cardiac arrhythmias are a leading cause of morbidity and mortality worldwide. This project leverages deep learning to create an assistive tool that automatically classifies heartbeats into five distinct arrhythmia categories, providing clinicians and researchers with instantaneous analysis. The system demonstrates a complete pipeline from model design and training to deployment as a publicly accessible web application, showcasing the potential of AI-driven diagnostic tools in biomedical engineering.
 
+## Important Note on Large Files
+The pre-trained model weights for this project (ecg_cnn_model.pth) are approximately 73MB in size. GitHub enforces a strict file size limit of 100 MB per file to maintain the performance and efficiency of their version control system. To comply with this policy and ensure the repository remains lightweight and easy to clone, the model file cannot be hosted directly on GitHub. Thus, I uploaded it on my Google drive. Find attached the link (https://drive.google.com/file/d/1uSyVTFig3eo4S767TmAPftc5bkbNW_NW/view?usp=sharing)
+
 ## Dataset
 
 This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1], the gold-standard benchmark for evaluating arrhythmia detectors.
