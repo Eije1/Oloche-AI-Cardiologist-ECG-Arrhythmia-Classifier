@@ -65,7 +65,7 @@ The system classifies heartbeats into five categories according to AAMI standard
 
 Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
 
-## Medical Disclaimer
+## Disclaimer
 This tool is a prototype for RESEARCH AND DEMONSTRATION PURPOSES ONLY. It is NOT a certified medical device.
 Not for diagnostic use - always consult qualified healthcare professionals
 Predictions are computational opinions, not definitive diagnoses
