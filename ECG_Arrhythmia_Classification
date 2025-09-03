@@ -1,0 +1,228 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+from sklearn.preprocessing import LabelEncoder
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+import numpy as np
+
+# Check if GPU is available
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+
+# Step 1: Prepare the Data for PyTorch
+# Convert labels to numerical values
+label_encoder = LabelEncoder()
+y_train_encoded = label_encoder.fit_transform(y_train)
+y_test_encoded = label_encoder.transform(y_test)
+
+print("Label mapping:")
+for i, class_name in enumerate(label_encoder.classes_):
+    print(f"  {class_name} -> {i}")
+
+# Convert to PyTorch tensors and add channel dimension
+X_train_tensor = torch.FloatTensor(X_train).unsqueeze(1)  # Shape: (n_samples, 1, 180)
+X_test_tensor = torch.FloatTensor(X_test).unsqueeze(1)    # Add channel dimension
+y_train_tensor = torch.LongTensor(y_train_encoded)
+y_test_tensor = torch.LongTensor(y_test_encoded)
+
+print(f"\nTensor shapes:")
+print(f"X_train_tensor: {X_train_tensor.shape}")
+print(f"y_train_tensor: {y_train_tensor.shape}")
+print(f"X_test_tensor: {X_test_tensor.shape}")
+print(f"y_test_tensor: {y_test_tensor.shape}")
+
+# Create DataLoaders for efficient training
+batch_size = 32
+train_dataset = torch.utils.data.TensorDataset(X_train_tensor, y_train_tensor)
+test_dataset = torch.utils.data.TensorDataset(X_test_tensor, y_test_tensor)
+
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+
+print(f"\nNumber of training batches: {len(train_loader)}")
+print(f"Number of test batches: {len(test_loader)}")
+
+# Step 2: Define the 1D CNN Architecture
+class ECGCNN(nn.Module):
+    def __init__(self, num_classes=5):
+        super(ECGCNN, self).__init__()
+
+        self.features = nn.Sequential(
+            # First convolutional block
+            nn.Conv1d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
+            nn.BatchNorm1d(32),
+            nn.ReLU(),
+            nn.MaxPool1d(kernel_size=2, stride=2),
+
+            # Second convolutional block
+            nn.Conv1d(32, 64, kernel_size=3, stride=1, padding=1),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            nn.MaxPool1d(kernel_size=2, stride=2),
+
+            # Third convolutional block
+            nn.Conv1d(64, 128, kernel_size=3, stride=1, padding=1),
+            nn.BatchNorm1d(128),
+            nn.ReLU(),
+            nn.MaxPool1d(kernel_size=2, stride=2),
+
+            # Fourth convolutional block
+            nn.Conv1d(128, 256, kernel_size=3, stride=1, padding=1),
+            nn.BatchNorm1d(256),
+            nn.ReLU(),
+            nn.MaxPool1d(kernel_size=2, stride=2)
+        )
+
+        # Calculate the size after convolutional layers
+        self._to_linear = None
+        self._calculate_conv_output_size(X_train_tensor.shape)
+
+        self.classifier = nn.Sequential(
+            nn.Linear(self._to_linear, 128),
+            nn.ReLU(),
+            nn.Dropout(0.5),
+            nn.Linear(128, num_classes)
+        )
+
+    def _calculate_conv_output_size(self, shape):
+        batch_size = 1
+        x = torch.rand(batch_size, *shape[1:])
+        x = self.features(x)
+        self._to_linear = x.shape[1] * x.shape[2]
+
+    def forward(self, x):
+        x = self.features(x)
+        x = x.view(x.size(0), -1)  # Flatten
+        x = self.classifier(x)
+        return x
+
+# Create model
+model = ECGCNN(num_classes=len(label_encoder.classes_))
+model = model.to(device)
+print(f"Model created and moved to: {device}")
+print(f"Total parameters: {sum(p.numel() for p in model.parameters()):,}")
+
+# Test a forward pass
+sample_batch = next(iter(train_loader))
+X_sample, y_sample = sample_batch
+X_sample, y_sample = X_sample.to(device), y_sample.to(device)
+output = model(X_sample)
+print(f"Input shape: {X_sample.shape}")
+print(f"Output shape: {output.shape}")
+print(f"Expected output shape: (batch_size, num_classes) = ({batch_size}, {len(label_encoder.classes_)})")
+
+# Step 3: Define Training Functions
+def train_epoch(model, train_loader, optimizer, criterion, device):
+    model.train()
+    running_loss = 0.0
+    correct = 0
+    total = 0
+
+    for batch_idx, (data, target) in enumerate(tqdm(train_loader, desc="Training")):
+        data, target = data.to(device), target.to(device)
+
+        optimizer.zero_grad()
+        output = model(data)
+        loss = criterion(output, target)
+        loss.backward()
+        optimizer.step()
+
+        running_loss += loss.item()
+        _, predicted = output.max(1)
+        total += target.size(0)
+        correct += predicted.eq(target).sum().item()
+
+    epoch_loss = running_loss / len(train_loader)
+    epoch_acc = 100. * correct / total
+    return epoch_loss, epoch_acc
+
+def test_epoch(model, test_loader, criterion, device):
+    model.eval()
+    running_loss = 0.0
+    correct = 0
+    total = 0
+
+    with torch.no_grad():
+        for data, target in tqdm(test_loader, desc="Testing"):
+            data, target = data.to(device), target.to(device)
+            output = model(data)
+            loss = criterion(output, target)
+
+            running_loss += loss.item()
+            _, predicted = output.max(1)
+            total += target.size(0)
+            correct += predicted.eq(target).sum().item()
+
+    epoch_loss = running_loss / len(test_loader)
+    epoch_acc = 100. * correct / total
+    return epoch_loss, epoch_acc
+
+# Step 4: Train the Model
+# Training setup
+learning_rate = 0.001
+num_epochs = 15
+
+optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=1e-5)
+criterion = nn.CrossEntropyLoss()
+
+# Learning rate scheduler
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
+
+# Store metrics
+train_losses, train_accs = [], []
+test_losses, test_accs = [], []
+
+print("Starting training...")
+for epoch in range(num_epochs):
+    print(f"\nEpoch {epoch+1}/{num_epochs}")
+
+    # Train
+    train_loss, train_acc = train_epoch(model, train_loader, optimizer, criterion, device)
+    train_losses.append(train_loss)
+    train_accs.append(train_acc)
+
+    # Test
+    test_loss, test_acc = test_epoch(model, test_loader, criterion, device)
+    test_losses.append(test_loss)
+    test_accs.append(test_acc)
+
+    # Update learning rate
+    scheduler.step()
+
+    print(f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.2f}%")
+    print(f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.2f}%")
+
+print("\nTraining completed!")
+
+# Step 5: Plot Training Results
+# Plot training history
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+
+# Loss plot
+ax1.plot(train_losses, label='Train Loss')
+ax1.plot(test_losses, label='Test Loss')
+ax1.set_title('Training and Test Loss')
+ax1.set_xlabel('Epoch')
+ax1.set_ylabel('Loss')
+ax1.legend()
+ax1.grid(True)
+
+# Accuracy plot
+ax2.plot(train_accs, label='Train Accuracy')
+ax2.plot(test_accs, label='Test Accuracy')
+ax2.set_title('Training and Test Accuracy')
+ax2.set_xlabel('Epoch')
+ax2.set_ylabel('Accuracy (%)')
+ax2.legend()
+ax2.grid(True)
+
+plt.tight_layout()
+plt.show()
+
+# Final performance
+final_train_acc = train_accs[-1]
+final_test_acc = test_accs[-1]
+print(f"Final Training Accuracy: {final_train_acc:.2f}%")
+print(f"Final Test Accuracy: {final_test_acc:.2f}%")
