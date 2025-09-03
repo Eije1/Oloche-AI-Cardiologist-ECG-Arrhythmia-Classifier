@@ -6,7 +6,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C)
 ![Gradio](https://img.shields.io/badge/UI-Gradio-FF4B4B)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face%20Space-yellow)
+![Hugging Face](https://img.shields.io/badge/-Hugging%20Face%20Space-yellow)
 
 A state-of-the-art deep learning system for automated detection and classification of cardiac arrhythmias from raw single-lead ECG signals. This project implements a 1D Convolutional Neural Network (CNN) trained on the MIT-BIH Arrhythmia Database to provide real-time, explainable diagnostic support.
 
@@ -63,4 +63,22 @@ The system classifies heartbeats into five categories according to AAMI standard
 3.  **Analyze:** Click "Analyze ECG" or press Enter
 4.  **Interpret Results:** Review prediction, confidence score, probability distribution, and signal visualization
 
+Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
 
+## Medical Disclaimer
+This tool is a prototype for RESEARCH AND DEMONSTRATION PURPOSES ONLY. It is NOT a certified medical device.
+
+Not for diagnostic use - always consult qualified healthcare professionals
+
+Predictions are computational opinions, not definitive diagnoses
+
+Author assumes no liability for any use or misuse of this application
+
+## Researcher
+Eije, Oloche Celestine
+Biomedical Engineering Researcher
+https://img.shields.io/badge/GitHub-Profile-black?logo=github
+https://img.shields.io/badge/%F0%9F%A4%97-HF%2520Profile-yellow
+
+## License
+This project is licensed under the MIT License. See LICENSE file for details.
