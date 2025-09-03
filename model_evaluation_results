@@ -1,0 +1,25 @@
+ECG Classification Model Evaluation Results
+==================================================
+
+Final Training Accuracy: 99.84%
+Final Test Accuracy: 88.54%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           A       0.35      0.44      0.39       285
+           L       0.00      0.00      0.00         0
+           N       0.99      0.89      0.94     18995
+           R       0.00      0.00      0.00         0
+           V       0.31      0.93      0.46       800
+
+    accuracy                           0.89     20080
+   macro avg       0.33      0.45      0.36     20080
+weighted avg       0.95      0.89      0.91     20080
+
+Per-class Accuracy:
+A: 43.86%
+L: nan%
+N: 89.02%
+R: nan%
+V: 93.00%
