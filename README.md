@@ -1,4 +1,4 @@
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9fdefa02-a292-4766-b58d-131244bd4f6c" /># README.md
+# README.md
 
 # Oloche-AI Cardiologist: ECG Arrhythmia Classifier
 
