@@ -29,6 +29,41 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
 
 *[1] Moody, G. B., & Mark, R. G. (2001). The impact of the MIT-BIH Arrhythmia Database. IEEE Engineering in Medicine and Biology Magazine, 20(3), 45-50.*
 
+## Technical Activities on ECG Arrhythmia Classification System
+1. Programming & Data Science Language
+   Python 3.x: The primary programming language for the entire project.
+   NumPy: For numerical computations, array operations, and handling the ECG signal data.
+   Matplotlib: For generating the static, publication-quality visualizations of the ECG signal and results.
+   Scikit-learn: Specifically, its LabelEncoder for handling the conversion of class labels (N, L, R, V, A).
+
+2. Deep Learning Framework & Model Development
+   PyTorch: The core framework for:
+   Defining the custom 1D CNN model architecture (nn.Module).
+   Implementing all neural network layers (Convolutional, BatchNorm, ReLU, Linear, Dropout).
+   Managing the model's state dictionary for saving and loading.
+   Performing the forward pass and inference.
+   Torch.nn.functional (F): Used for applying the Softmax function to get probability distributions from the model outputs.
+
+3. Web Application & User Interface (UI)
+   Gradio: The framework for building and deploying the interactive web interface. This included:
+   Creating input components (textbox for ECG data).
+   Designing the layout with gr.Blocks, gr.Row, and gr.Column.
+   Defining the interactive functions with btn.click() and input.submit().
+   Deploying the application seamlessly to Hugging Face Spaces.
+   Custom CSS: I wrote extensive CSS to create a dark-themed and visually cohesive UI, overriding Gradio's default styles.
+
+5. Model Deployment & Sharing
+   Hugging Face Spaces: The platform used to host and share the live, interactive demo of your project for free.
+   Git: For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
+
+5. Development Environment & Tools
+   Jupyter Notebook / VS Code / PyCharm: (Implied) The IDE or editor used for development and debugging.
+   PIP: The package manager for installing and managing all Python dependencies.
+
+7. Data Source & Benchmarking
+   MIT-BIH Arrhythmia Database: The gold-standard, publicly available dataset from PhysioNet used for training and evaluating the model.     This is a critical component of my work.
+
+
 ##  Model Architecture
 
 The system uses a custom 1D Convolutional Neural Network implemented in PyTorch:
@@ -62,7 +97,7 @@ The system classifies heartbeats into five categories according to AAMI standard
 3.  **Analyze:** Click "Analyze ECG" or press Enter
 4.  **Interpret Results:** Review prediction, confidence score, probability distribution, and signal visualization
 
-Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
+             Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
 
 ## Disclaimer
 This tool is a prototype for research and demonstration purposes only. It is NOT a certified medical device.
