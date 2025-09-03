@@ -36,7 +36,7 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
    *Matplotlib:* For generating the static, publication-quality visualizations of the ECG signal and results;
    *Scikit-learn:* Specifically, its LabelEncoder for handling the conversion of class labels (N, L, R, V, A).
 
-3. **Deep Learning Framework & Model Development**PyTorch: The core framework for:
+3. **Deep Learning Framework & Model Development** *PyTorch:* The core framework for:
    Defining the custom 1D CNN model architecture (nn.Module);
    Implementing ocnvolutional neural network layers;
    Managing the model's state dictionary for saving and loading;
@@ -44,7 +44,7 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
    Torch.nn.functional (F): Used for applying the Softmax function to get probability distributions from the model outputs;
 
 4. **Web Application & User Interface (UI)**
-   Gradio: The framework for building and deploying the interactive web interface. This included:
+   *Gradio:* The framework for building and deploying the interactive web interface. This included:
    Creating input components (textbox for ECG data);
    Designing the layout with gr.Blocks, gr.Row, and gr.Column;
    Defining the interactive functions with btn.click() and input.submit();
@@ -52,15 +52,11 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
    Custom CSS: I wrote extensive CSS to create a dark-themed and visually cohesive UI, overriding Gradio's default styles;
 
 5. **Model Deployment & Sharing**
-   Hugging Face Spaces: The platform used to host and share the live, interactive demo of your project for free.
-   Git: For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
+   *Hugging Face Spaces:* The platform used to host and share the live, interactive demo of your project for free.
+   *Git:* For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
 
-5. **Development Environment & Tools**
-   Jupyter Notebook / VS Code / PyCharm: (Implied) The IDE or editor used for development and debugging.
-   PIP: The package manager for installing and managing all Python dependencies.
-
-7. **Data Source & Benchmarking**
-   MIT-BIH Arrhythmia Database: The gold-standard, publicly available dataset from PhysioNet used for training and evaluating the model.     This is a critical component of my work.
+6. **Data Source & Benchmarking**
+   *MIT-BIH Arrhythmia Database:* The gold-standard, publicly available dataset from PhysioNet used for training and evaluating the model.
 
 
 ##  Model Architecture
