@@ -1,0 +1,54 @@
+
+# ECG Classification Project Report - Oloche Celestine Eije
+
+## Executive Summary
+This project developed a deep learning model for classifying ECG signals into 5 categories.
+The final model achieved 88.54% accuracy on the test set.
+
+## Dataset
+- Number of samples: 100038
+- Training samples: 80030
+- Test samples: 20008
+- Classes: A, L, N, R, V
+
+## Model Architecture
+The model is a 1D CNN with:
+- 4 convolutional blocks with increasing filters (32, 64, 128, 256)
+- Batch normalization and ReLU activation after each convolution
+- Max pooling for downsampling
+- Two fully connected layers at the end
+
+## Results
+- Final Training Accuracy: 99.84%
+- Final Test Accuracy: 88.54%
+
+## Per-class Performance
+- A: 43.86%
+- L: nan%
+- N: 89.02%
+- R: nan%
+- V: 93.00%
+        "    f.write(report)\n",
+        "\n",
+        "print(\"Project report generated as 'ECG_Classification_Report.md'\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VklWBT2lIszy",
+        "outputId": "5122898b-8d9c-4391-c74c-f4f9409d0ff0"
+      },
+      "execution_count": 54,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Project report generated as 'ECG_Classification_Report.md'\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
