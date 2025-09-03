@@ -31,13 +31,12 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
 
 ## Technical Activities on ECG Arrhythmia Classification System
 1. **Programming & Data Science Language**
-   Python 3.x: The primary programming language for the entire project;
-   NumPy: For numerical computations, array operations, and handling the ECG signal data;
-   Matplotlib: For generating the static, publication-quality visualizations of the ECG signal and results;
-   Scikit-learn: Specifically, its LabelEncoder for handling the conversion of class labels (N, L, R, V, A).
+   *Python 3.x:* The primary programming language for the entire project;
+   *NumPy:* For numerical computations, array operations, and handling the ECG signal data;
+   *Matplotlib:* For generating the static, publication-quality visualizations of the ECG signal and results;
+   *Scikit-learn:* Specifically, its LabelEncoder for handling the conversion of class labels (N, L, R, V, A).
 
-3. **Deep Learning Framework & Model Development**
-   PyTorch: The core framework for:
+3. **Deep Learning Framework & Model Development**PyTorch: The core framework for:
    Defining the custom 1D CNN model architecture (nn.Module);
    Implementing ocnvolutional neural network layers;
    Managing the model's state dictionary for saving and loading;
