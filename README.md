@@ -67,18 +67,12 @@ Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, m
 
 ## Medical Disclaimer
 This tool is a prototype for RESEARCH AND DEMONSTRATION PURPOSES ONLY. It is NOT a certified medical device.
-
 Not for diagnostic use - always consult qualified healthcare professionals
-
 Predictions are computational opinions, not definitive diagnoses
-
 Author assumes no liability for any use or misuse of this application
 
 ## Researcher
 Eije, Oloche Celestine
-Biomedical Engineering Researcher
-https://img.shields.io/badge/GitHub-Profile-black?logo=github
-https://img.shields.io/badge/%F0%9F%A4%97-HF%2520Profile-yellow
 
 ## License
 This project is licensed under the MIT License. See LICENSE file for details.
