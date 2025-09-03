@@ -11,13 +11,12 @@
 A state-of-the-art deep learning system for automated detection and classification of cardiac arrhythmias from raw single-lead ECG signals. This project implements a 1D Convolutional Neural Network (CNN) trained on the MIT-BIH Arrhythmia Database to provide real-time, explainable diagnostic support.
 
 **Access the website of this work:** [https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification](https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification)  
+**Project title:** While the user-friendly web application of this work is titled "Oloche-AI Cardiologist: ECG Arrhythmia Classifier", the research title of this project is "Leveraging 1D Convolutional Neural Networks for Automated Multi-Class Arrhythmia Diagnosis from Single-Lead ECG Signals".
 **Researcher:** Eije, Oloche Celestine
 
 ## Project Overview
 
-Cardiac arrhythmias are a leading cause of morbidity and mortality worldwide. This project leverages deep learning to create an assistive tool that automatically classifies heartbeats into five distinct arrhythmia categories, providing clinicians and researchers with instantaneous analysis.
-
-The system demonstrates a complete pipeline from model design and training to deployment as a publicly accessible web application, showcasing the potential of AI-driven diagnostic tools in biomedical engineering.
+Cardiac arrhythmias are a leading cause of morbidity and mortality worldwide. This project leverages deep learning to create an assistive tool that automatically classifies heartbeats into five distinct arrhythmia categories, providing clinicians and researchers with instantaneous analysis. The system demonstrates a complete pipeline from model design and training to deployment as a publicly accessible web application, showcasing the potential of AI-driven diagnostic tools in biomedical engineering.
 
 ## Dataset
 
