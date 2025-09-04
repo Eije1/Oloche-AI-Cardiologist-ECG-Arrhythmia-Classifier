@@ -23,11 +23,17 @@ The pre-trained model weights for this project (ecg_cnn_model.pth) are approxima
 ## Research Challenges
 This project revealed critical challenges in medical AI deployment:
 
-Generalization Limits: Model shows high confidence on synthetic data, revealing bias and overfitting issues.
-Input Sensitivity: Performance is highly dependent on precise 180-sample inputs, highlighting robustness concerns.
-Explainability Gap: Provides predictions but limited insight into feature importance for clinical trust.
+- **Generalization Limits**: Model shows high confidence on synthetic data, revealing bias and overfitting issues.
+- **Input Sensitivity**: Performance is highly dependent on precise 180-sample inputs, highlighting robustness concerns.
+- **Explainability Gap**: Provides predictions but limited insight into feature importance for clinical trust.
 
-The research challenges that came with this project sparked my Interests in the following: *Robust AI for diverse clinical environments*, *Explainable AI (XAI) for healthcare decisions*, *Few-shot learning for limited medical data*, *Uncertainty quantification for safe diagnostics*. These challenges underscore the need for more reliable and interpretable medical AI systems.
+The research challenges that came with this project sparked my interests in the following: 
+- *Robust AI for diverse clinical environments*
+- *Explainable AI (XAI) for healthcare decisions*
+- *Few-shot learning for limited medical data*
+- *Uncertainty quantification for safe diagnostics*
+
+These challenges underscore the need for more reliable and interpretable medical AI systems.
 
 
 ## Dataset
@@ -44,31 +50,45 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
 
 ## Technical Activities on ECG Arrhythmia Classification System
 1. **Programming & Data Science Language**
-   *Python 3.x:* The primary programming language for the entire project;
-   *NumPy:* For numerical computations, array operations, and handling the ECG signal data;
-   *Matplotlib:* For generating the static, publication-quality visualizations of the ECG signal and results;
-   *Scikit-learn:* Specifically, its LabelEncoder for handling the conversion of class labels (N, L, R, V, A).
+   - *Python 3.x:* The primary programming language for the entire project
+   - *NumPy:* For numerical computations, array operations, and handling the ECG signal data
+   - *Matplotlib:* For generating the static, publication-quality visualizations of the ECG signal and results;
+   - *Scikit-learn:* Specifically, its LabelEncoder for handling the conversion of class labels (N, L, R, V, A).
 
-3. **Deep Learning Framework & Model Development** *PyTorch:* The core framework for:
-   Defining the custom 1D CNN model architecture (nn.Module);
-   Implementing ocnvolutional neural network layers;
-   Managing the model's state dictionary for saving and loading;
-   Performing the forward pass and inference;
-   Torch.nn.functional (F): Used for applying the Softmax function to get probability distributions from the model outputs;
+3. **Deep Learning Framework & Model Development**
+   
+   *PyTorch*
+   - The core framework for defining the custom 1D CNN model architecture (nn.Module)
+   - Implementing ocnvolutional neural network layers
+   - Managing the model's state dictionary for saving and loading
+   - Performing the forward pass and inference
+     
+   *Torch.nn.functional (F)*
 
-4. **Web Application & User Interface (UI)**
-   *Gradio:* The framework for building and deploying the interactive web interface. This included:
-   Creating input components (textbox for ECG data);
-   Designing the layout with gr.Blocks, gr.Row, and gr.Column;
-   Defining the interactive functions with btn.click() and input.submit();
-   Deploying the application seamlessly to Hugging Face Spaces;
-   Custom CSS: I wrote extensive CSS to create a dark-themed and visually cohesive UI, overriding Gradio's default styles;
+     Used for applying the Softmax function to get probability distributions from the model outputs
 
-5. **Model Deployment & Sharing**
-   *Hugging Face Spaces:* The platform used to host and share the live, interactive demo of your project for free.
+5. **Web Application & User Interface (UI)**
+   
+   *Gradio*
+
+   The framework for building and deploying the interactive web interface includes:
+    - Creating input components (textbox for ECG data)
+    - Designing the layout with gr.Blocks, gr.Row, and gr.Column
+    - Defining the interactive functions with btn.click() and input.submit()
+    - Deploying the application seamlessly to Hugging Face Spaces
+      
+   *Custom CSS*
+    - I wrote extensive CSS to create a dark-themed and visually cohesive UI, overriding Gradio's default styles;
+
+
+7. **Model Deployment & Sharing**
+   
+   *Hugging Face Spaces:*
+   The platform used to host and share the live, interactive demo of your project for free.
+   
    *Git:* For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
 
-6. **Data Source & Benchmarking**
+9. **Data Source & Benchmarking**
    *MIT-BIH Arrhythmia Database:* The gold-standard, publicly available dataset from PhysioNet used for training and evaluating the model.
 
 
@@ -105,7 +125,7 @@ The system classifies heartbeats into five categories according to AAMI standard
 3.  **Analyze:** Click "Analyze ECG" or press Enter
 4.  **Interpret Results:** Review prediction, confidence score, probability distribution, and signal visualization
 
-             Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
+   Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
 
 ## Disclaimer
 This tool is a prototype for research and demonstration purposes only. It is NOT a certified medical device.
