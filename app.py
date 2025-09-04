@@ -256,7 +256,7 @@ custom_css = """
     max-width: 100% !important;
     margin: 0 auto !important;
     padding: 20px !important;
-    background: #1a1a1a !important; /* Dark gray background */
+    background: #000000 !important; /* Dark gray background */
     color: #ffffff !important; /* White text */
     font-family: 'Arial', sans-serif;
 }
@@ -435,7 +435,7 @@ with gr.Blocks(css=custom_css, title="ECG Classification System") as demo:
     
     gr.Markdown("""
     <div class="header" style="text-align: center;">
-    <h1 style="text-align: center; font-weight: 1,000 !important;">Oloche-AI Cardiologist: ECG Arrhythmia Classifier</h1>
+    <h1 style="text-align: center; font-weight: 1,000 !important;">Oloche'S AI Cardiologist: ECG Arrhythmia Classifier</h1>
     </div>
     """)
     
