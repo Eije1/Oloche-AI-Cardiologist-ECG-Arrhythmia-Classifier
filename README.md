@@ -32,7 +32,6 @@ The research challenges that came with this project sparked my interests in the 
 - *Explainable AI (XAI) for healthcare decisions*
 - *Few-shot learning for limited medical data*
 - *Uncertainty quantification for safe diagnostics*
-
 These challenges underscore the need for more reliable and interpretable medical AI systems.
 
 
@@ -64,8 +63,7 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
    - Performing the forward pass and inference
      
    *Torch.nn.functional (F)*
-
-     Used for applying the Softmax function to get probability distributions from the model outputs
+   - Used for applying the Softmax function to get probability distributions from the model outputs
 
 5. **Web Application & User Interface (UI)**
    
@@ -76,7 +74,6 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
     - Designing the layout with gr.Blocks, gr.Row, and gr.Column
     - Defining the interactive functions with btn.click() and input.submit()
     - Deploying the application seamlessly to Hugging Face Spaces
-      
    *Custom CSS*
     - I wrote extensive CSS to create a dark-themed and visually cohesive UI, overriding Gradio's default styles;
 
@@ -85,10 +82,10 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
    
    *Hugging Face Spaces:*
    The platform used to host and share the live, interactive demo of your project for free.
-   
    *Git:* For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
 
 9. **Data Source & Benchmarking**
+    
    *MIT-BIH Arrhythmia Database:* The gold-standard, publicly available dataset from PhysioNet used for training and evaluating the model.
 
 
