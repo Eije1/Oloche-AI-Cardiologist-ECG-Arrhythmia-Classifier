@@ -20,6 +20,16 @@ Cardiac arrhythmias are a leading cause of morbidity and mortality worldwide. Th
 ## Challenges with uploading "ecg_cnn_model" on Github
 The pre-trained model weights for this project (ecg_cnn_model.pth) are approximately 73MB in size. GitHub enforces a strict file size limit of 100 MB per file to maintain the performance and efficiency of their version control system. To comply with this policy and ensure the repository remains lightweight and easy to clone, the model file cannot be hosted directly on GitHub. Thus, I uploaded it on my Google drive. Find attached the link (https://drive.google.com/file/d/1uSyVTFig3eo4S767TmAPftc5bkbNW_NW/view?usp=sharing)
 
+## Research Challenges
+This project revealed critical challenges in medical AI deployment:
+
+Generalization Limits: Model shows high confidence on synthetic data, revealing bias and overfitting issues.
+Input Sensitivity: Performance is highly dependent on precise 180-sample inputs, highlighting robustness concerns.
+Explainability Gap: Provides predictions but limited insight into feature importance for clinical trust.
+
+The research challenges that came with this project sparked my Interests in the following: *Robust AI for diverse clinical environments*, *Explainable AI (XAI) for healthcare decisions*, *Few-shot learning for limited medical data*, *Uncertainty quantification for safe diagnostics*. These challenges underscore the need for more reliable and interpretable medical AI systems.
+
+
 ## Dataset
 
 This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1], the gold-standard benchmark for evaluating arrhythmia detectors.
