@@ -74,6 +74,7 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
     - Designing the layout with gr.Blocks, gr.Row, and gr.Column
     - Defining the interactive functions with btn.click() and input.submit()
     - Deploying the application seamlessly to Hugging Face Spaces
+      
    *Custom CSS*
     - I wrote extensive CSS to create a dark-themed and visually cohesive UI, overriding Gradio's default styles;
 
