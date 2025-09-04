@@ -83,6 +83,7 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
    
    *Hugging Face Spaces:*
    The platform used to host and share the live, interactive demo of your project for free.
+   
    *Git:* For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
 
 9. **Data Source & Benchmarking**
