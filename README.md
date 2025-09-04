@@ -82,13 +82,15 @@ This system was trained and evaluated on the **MIT-BIH Arrhythmia Database** [1]
 7. **Model Deployment & Sharing**
    
    *Hugging Face Spaces:*
-   The platform used to host and share the live, interactive demo of your project for free.
+    - The platform used to host and share the live, interactive demo of your project for free.
    
-   *Git:* For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
+   *Git:*
+    - For version control, managing the project files, and pushing the code to the Hugging Face Space repository.
 
 9. **Data Source & Benchmarking**
     
-   *MIT-BIH Arrhythmia Database:* The gold-standard, publicly available dataset from PhysioNet used for training and evaluating the model.
+   *MIT-BIH Arrhythmia Database:*
+   - The gold-standard, publicly available dataset from PhysioNet used for training and evaluating the model.
 
 
 ##  Model Architecture
@@ -119,18 +121,19 @@ The system classifies heartbeats into five categories according to AAMI standard
 
 ## How to use this work
 
-1.  **Access Demo:** Visit the [Hugging Face Space](https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification)
-2.  **Input Data:** Provide 180 comma-separated numerical values representing a single ECG heartbeat
-3.  **Analyze:** Click "Analyze ECG" or press Enter
-4.  **Interpret Results:** Review prediction, confidence score, probability distribution, and signal visualization
+-  **Access Demo:** Visit the [Hugging Face Space](https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification)
+-  **Input Data:** Provide 180 comma-separated numerical values representing a single ECG heartbeat
+-  **Analyze:** Click "Analyze ECG" or press Enter
+-  **Interpret Results:** Review prediction, confidence score, probability distribution, and signal visualization
 
-   Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
+  Dependencies: torch>=2.0.0, gradio>=4.0.0, numpy>=1.21.0, scikit-learn>=1.0.0, matplotlib>=3.5.0
 
 ## Disclaimer
-This tool is a prototype for research and demonstration purposes only. It is NOT a certified medical device.
-Not for diagnostic use - always consult qualified healthcare professionals
-Predictions are computational opinions, not definitive diagnoses
-Author assumes no liability for any use or misuse of this application
+This tool is a prototype for research and demonstration purposes only.
+- It is NOT a certified medical device
+- Not for diagnostic use and as such always consult qualified healthcare professional
+- Predictions are computational opinions, not definitive diagnose
+- Author assumes no liability for any use or misuse of this application
 
 ## Researcher
 Eije, Oloche Celestine
