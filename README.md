@@ -1,6 +1,6 @@
 # README.md
 
-# Oloche-AI Cardiologist: ECG Arrhythmia Classifier
+# Oloche's AI Cardiologist: ECG Arrhythmia Classifier
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C)
@@ -11,7 +11,7 @@
 A state-of-the-art deep learning system for automated detection and classification of cardiac arrhythmias from raw single-lead ECG signals. This project implements a 1D Convolutional Neural Network (CNN) trained on the MIT-BIH Arrhythmia Database to provide real-time, explainable diagnostic support.
 
 **Web application of this work:** [https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification](https://huggingface.co/spaces/eijeoloche1/ECG_Arrhythmia_Classification)  
-**Project title:** The user-friendly web app of this work is titled "Oloche-AI Cardiologist: ECG Arrhythmia Classifier", while its research title is "Leveraging 1D CNNs for Automated Multi-Class Arrhythmia Diagnosis from Single-Lead ECG Signals".
+**Project title:** The user-friendly web app of this work is titled "Oloche's AI Cardiologist: ECG Arrhythmia Classifier", while its research title is "Leveraging 1D CNNs for Automated Multi-Class Arrhythmia Diagnosis from Single-Lead ECG Signals".
 
 ## Project Overview
 
